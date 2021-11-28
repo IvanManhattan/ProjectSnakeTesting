@@ -1,107 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.uni</groupId>
-    <artifactId>Project_Snake_Testing</artifactId>
-    <version>2.0</version>
-    <name>Project Snake Testing</name>
+    <groupId>org.openjfx</groupId>
+    <artifactId>hellofx</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
 
-  <properties>
-  <sonar.organization>ivanmanhattan</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  </properties>
+    <name>SimpleSnakeTest</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <sonar.organization>ivanmanhattan</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.1</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
-        <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-	        <groupId>com.jtransc</groupId>
-	        <artifactId>jtransc-rt</artifactId>
-	        <version>0.5.0-ALPHA4</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
-                <version>3.0.0-M5</version>
-            </plugin>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
                 <executions>
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>test</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>jacoco-check</id>
+                        <id>post-unit-test</id>
+                        <phase>test</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>report</goal>
                         </goals>
                         <configuration>
-                            <rules>
-                                <rule>
-                                    <element>PACKAGE</element>
-                                    <limits>
-                                        <limit>
-                                            <counter>LINE</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum>
-                                        </limit>
-                                    </limits>
-                                </rule>
-                            </rules>
+                            <!-- Sets the path to the file which contains the execution data. -->
+
+                            <dataFile>target/jacoco.exec</dataFile>
+                            <!-- Sets the output directory for the code coverage report. -->
+                            <outputDirectory>target/my-reports</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <debug>false</debug>
-                    <optimize>true</optimize>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
-
 </project>
