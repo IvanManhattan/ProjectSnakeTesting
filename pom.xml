@@ -5,23 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.uni</groupId>
-    <artifactId>Java_Calculator</artifactId>
+    <artifactId>Project_Snake_Testing</artifactId>
     <version>2.0</version>
-    <name>Java Calculator</name>
+    <name>Project Snake Testing</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
-        <!-- Sonar -->
-        <sonar.organization>hummel009</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-        <sonar.language>java</sonar.language>
-    </properties>
+  <properties>
+  <sonar.organization>ivanmanhattan</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  </properties>
 
     <dependencies>
         <dependency>
