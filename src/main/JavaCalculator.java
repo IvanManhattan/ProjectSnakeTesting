@@ -1,4 +1,4 @@
-package main.java.com.uni;
+package main;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

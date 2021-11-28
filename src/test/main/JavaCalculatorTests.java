@@ -1,4 +1,4 @@
-package test.java.com.uni;
+package main;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 
-import main.java.com.uni.JavaCalculator;
+
 
 public class JavaCalculatorTests {
     JavaCalculator calculator = new JavaCalculator();
