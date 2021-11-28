@@ -11,8 +11,10 @@ import main.java.com.uni.JavaCalculator;
 class JavaCalculatorTests {
     JavaCalculator calculator = new JavaCalculator();
 
+
+
     @Test
-    void testSARCCOS() {
+    public void testARCCOS() {
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(10));
         calculator.selectButton(calculator.getButton(5));
@@ -92,14 +94,15 @@ class JavaCalculatorTests {
         assertEquals(2, calculator.getOutput());
     }
 
-    @Test
+    /**@Test
     void testSMINUS() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(16));
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(19));
         assertEquals(-1, calculator.getOutput());
-    }
+    }**/
+
 
     @Test
     void testSMULTIPLE() {
