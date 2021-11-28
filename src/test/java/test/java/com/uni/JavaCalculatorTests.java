@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import main.java.com.uni.JavaCalculator;
 
-class JavaCalculatorTests {
+public class JavaCalculatorTests {
     JavaCalculator calculator = new JavaCalculator();
 
 
@@ -23,14 +23,14 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSARCCTG() {
+    public void testSARCCTG() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(31));
         assertEquals(1 / Math.atan(1), calculator.getOutput());
     }
 
     @Test
-    void testSARCSIN() {
+    public void testSARCSIN() {
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(10));
         calculator.selectButton(calculator.getButton(5));
@@ -39,14 +39,14 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSARCTG() {
+    public void testSARCTG() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(30));
         assertEquals(Math.atan(1), calculator.getOutput());
     }
 
     @Test
-    void testSCOS() {
+    public void testSCOS() {
         calculator.selectButton(calculator.getButton(6));
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(25));
@@ -54,7 +54,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSCTG() {
+    public void testSCTG() {
         calculator.selectButton(calculator.getButton(4));
         calculator.selectButton(calculator.getButton(5));
         calculator.selectButton(calculator.getButton(27));
@@ -62,7 +62,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSDIVIDE() {
+    public void testSDIVIDE() {
         calculator.selectButton(calculator.getButton(9));
         calculator.selectButton(calculator.getButton(14));
         calculator.selectButton(calculator.getButton(3));
@@ -71,21 +71,21 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSNUMBER() {
+    public void testSNUMBER() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(23));
         assertEquals(6, calculator.getOutput());
     }
 
     @Test
-    void testSFACTORIAL() {
+    public void testSFACTORIAL() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(23));
         assertEquals(6, calculator.getOutput());
     }
 
     @Test
-    void testSLOGARITHM() {
+    public void testSLOGARITHM() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(5));
         calculator.selectButton(calculator.getButton(22));
@@ -105,7 +105,7 @@ class JavaCalculatorTests {
 
 
     @Test
-    void testSMULTIPLE() {
+    public void testSMULTIPLE() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(15));
         calculator.selectButton(calculator.getButton(3));
@@ -114,7 +114,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSPERCENT() {
+    public void testSPERCENT() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(0));
@@ -126,7 +126,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSPLUS() {
+    public void testSPLUS() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(17));
         calculator.selectButton(calculator.getButton(3));
@@ -135,7 +135,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSPOWER() {
+    public void testSPOWER() {
         calculator.selectButton(calculator.getButton(5));
         calculator.selectButton(calculator.getButton(21));
         calculator.selectButton(calculator.getButton(2));
@@ -144,7 +144,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSSIN() {
+    public void testSSIN() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(24));
@@ -152,7 +152,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSSQRT() {
+    public void testSSQRT() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(5));
         calculator.selectButton(calculator.getButton(20));
@@ -160,7 +160,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSTG() {
+    public void testSTG() {
         calculator.selectButton(calculator.getButton(4));
         calculator.selectButton(calculator.getButton(5));
         calculator.selectButton(calculator.getButton(26));
@@ -168,21 +168,21 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSDOUBLEFACT() {
+    public void testSDOUBLEFACT() {
         calculator.selectButton(calculator.getButton(9));
         calculator.selectButton(calculator.getButton(44));
         assertEquals(945, calculator.getOutput());
     }
 
     @Test
-    void testSTEN() {
+    public void testSTEN() {
         calculator.selectButton(calculator.getButton(2));
         calculator.selectButton(calculator.getButton(42));
         assertEquals(100, calculator.getOutput());
     }
 
     @Test
-    void testSLN() {
+    public void testSLN() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(37));
@@ -190,7 +190,7 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSLG() {
+    public void testSLG() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(36));
@@ -198,56 +198,56 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testSCUBE() {
+    public void testSCUBE() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(35));
         assertEquals(27, calculator.getOutput());
     }
 
     @Test
-    void testSSQUARE() {
+    public void testSSQUARE() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(34));
         assertEquals(9, calculator.getOutput());
     }
 
     @Test
-    void testSSH() {
+    public void testSSH() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(39));
         assertEquals((Math.pow(2.7183, 3) - Math.pow(2.7183, (-1) * 3)) / 2, calculator.getOutput());
     }
 
     @Test
-    void testSCH() {
+    public void testSCH() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(38));
         assertEquals((Math.pow(2.7183, 3) + Math.pow(2.7183, (-1) * 3)) / 2, calculator.getOutput());
     }
 
     @Test
-    void testSBACK() {
+    public void testSBACK() {
         calculator.selectButton(calculator.getButton(1));
         calculator.selectButton(calculator.getButton(43));
         assertEquals(1, calculator.getOutput());
     }
 
     @Test
-    void testSTH() {
+    public void testSTH() {
         calculator.selectButton(calculator.getButton(0));
         calculator.selectButton(calculator.getButton(40));
         assertEquals((Math.pow(2.7183, 0) - Math.pow(2.7183, (-1) * 0)) / (Math.pow(2.7183, 0) + Math.pow(2.7183, (-1) * 0)), calculator.getOutput());
     }
 
     @Test
-    void testSCTH() {
+    public void testSCTH() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(41));
         assertEquals((Math.pow(2.7183, 3) + Math.pow(2.7183, (-1) * 3)) / (Math.pow(2.7183, 3) - Math.pow(2.7183, (-1) * 3)), calculator.getOutput());
     }
 
     @Test
-    void testExtended() {
+    public void testExtended() {
         calculator.selectButton(calculator.getButton(32));
         assertEquals(true, calculator.getExtended());
         calculator.selectButton(calculator.getButton(32));
@@ -255,21 +255,21 @@ class JavaCalculatorTests {
     }
 
     @Test
-    void testCLEAR() {
+    public void testCLEAR() {
         calculator.selectButton(calculator.getButton(3));
         calculator.selectButton(calculator.getButton(13));
         assertEquals(0, calculator.getOutput());
     }
 
     @Test
-    void testE() {
+    public void testE() {
         calculator.selectButton(calculator.getButton(12));
         calculator.selectButton(calculator.getButton(19));
         assertEquals(2.718281828459045, calculator.getOutput());
     }
 
     @Test
-    void testP() {
+    public void testP() {
         calculator.selectButton(calculator.getButton(11));
         calculator.selectButton(calculator.getButton(19));
         assertEquals(3.141592653589793, calculator.getOutput());

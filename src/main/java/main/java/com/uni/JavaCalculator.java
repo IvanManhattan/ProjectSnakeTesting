@@ -12,15 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-//класс базируется на JFrame и наследует его содержимое, ActionListener отвечает за отслеживание нажатой кнопки
+
 public class JavaCalculator implements ActionListener {
-    private final JButton[] button = new JButton[50]; // все наши кнопки
-    private Operation operation; // тип операции - сложение, вычитание и т.д.
-    private double output; // выводимые данные
-    private double input1; // вводимые данные
-    private double input2; // вводимые данные
-    private final JTextField outputField = new JTextField(20); // поле вывода
-    private final JPanel panel = new JPanel(); // сетка из кнопок
+    private final JButton[] button = new JButton[50];
+    private Operation operation;
+    private double output;
+    private double input1;
+    private double input2;
+    private final JTextField outputField = new JTextField(20);
+    private final JPanel panel = new JPanel();
     private int notInclude;
     boolean isExtended = false;
 
@@ -29,16 +29,15 @@ public class JavaCalculator implements ActionListener {
     }
 
     public JavaCalculator() {
-        //JFrame frame = new JFrame("Calculator v2.0"); //создаём окно и задаём заголовок
 
-        // создаём кнопки про помощи цикла
+
+
         for (int i = 0; i <= 49; i++) {
             button[i] = new JButton();
         }
 
-        panel.setLayout(new GridLayout(7, 4)); // сетка из кнопок - в высоту и в ширину
+        panel.setLayout(new GridLayout(7, 4));
 
-        // настраиваем созданные кнопки, используя новый метод "registerButton"
         registerButton(button[13], "C");
         registerButton(button[12], "e");
         registerButton(button[11], "π");
@@ -92,51 +91,37 @@ public class JavaCalculator implements ActionListener {
 
         registerButton(button[32], "Инженер");
 
-        outputField.setFont(outputField.getFont().deriveFont(40f)); // меняем размер шрифта полю вывода
-        outputField.setHorizontalAlignment(SwingConstants.RIGHT); // располагаем выводимый текст справа, а не по умолчанию в центре
-        outputField.setEditable(false); // запрещаем редактировать поле через мышь и клавиатуру, т.к. вычислять таким образом всё равно нельзя.
+        outputField.setFont(outputField.getFont().deriveFont(40f));
+        outputField.setHorizontalAlignment(SwingConstants.RIGHT);
+        outputField.setEditable(false);
         operation = Operation.NULL;
-        //frame.add(outputField, BorderLayout.NORTH); //поле вывода - наверху
-        //frame.add(panel, BorderLayout.CENTER); //кнопки - под полем вывода
-        //frame.setVisible(true); //окно видимое
-        //frame.setSize(600, 700); //размер окна
-        //frame.setLocationRelativeTo(null); //выводим окно в центре экрана
+
     }
 
-    /*
-     * Этот метод помогает сократить количество кода, выполняя сразу несколько действий. Аргументы:
-     *
-     * button - конкретная кнопка, элемент массива, который мы настраиваем name - текст, который будет написан на кнопке
-     *
-     * От порядка настройки кнопок зависит их положение в сетке кнопок. Сетка заполняется сверху вниз и слева направо.
-     */
+
     public void registerButton(JButton button, String name) {
-        button.setFont(button.getFont().deriveFont(20f)); // присваиваем кнопке увеличенный шрифт
-        button.addActionListener(this); // присваиваем кнопке механизм вызова actionPerformed
-        button.setText(name); // присваиваем кнопке name в качестве текста
-        panel.add(button);// располагаем кнопку на сетке кнопок.
+        button.setFont(button.getFont().deriveFont(20f));
+        button.addActionListener(this);
+        button.setText(name);
+        panel.add(button);
     }
 
-    /*
-     * Этот метод помогает оптимизировать меню инженера, позволяя открывать и закрывать доселе невидимые кнопки. Аргументы:
-     *
-     * button - конкретная кнопка, элемент массива, который мы настраиваем name - текст, который будет написан на кнопке
-     */
+
     public void registerHiddenButton(JButton button, String name) {
-        button.setFont(button.getFont().deriveFont(20f)); // присваиваем кнопке увеличенный шрифт
-        button.addActionListener(this); // присваиваем кнопке механизм вызова actionPerformed
-        button.setText(name); // присваиваем кнопке name в качестве текста
+        button.setFont(button.getFont().deriveFont(20f));
+        button.addActionListener(this);
+        button.setText(name);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        final JButton jbutton = (JButton) event.getSource(); // определяет, какая именно кнопка была нажата
-        selectButton(jbutton); // выбирает условие в зависимости от нажатой кнопки
+        final JButton jbutton = (JButton) event.getSource();
+        selectButton(jbutton);
     }
 
-    //выбор развилки в зависимости от нажатой кнопки
+
     public void selectButton(JButton jbutton) {
-        // если нажатая кнопка - операция, то мы присваиваем ей операцию методами oneNumber или twoNumbers
+
         if (jbutton == button[23]) {
             oneNumber(Operation.FACTORIAL, button[23]);
         } else if (jbutton == button[44]) {
@@ -195,50 +180,49 @@ public class JavaCalculator implements ActionListener {
             twoNumbers(Operation.PERCENT, button[18]);
         }
 
-        // если нажатая кнопка - инженер
+
         else if (jbutton == button[32]) {
             extendedMode();
         }
 
-        // если нажатая кнопка - очистить
+
         else if (jbutton == button[13]) {
             clear();
         }
 
-        // если нажатая кнопка - равно
+
         else if (jbutton == button[19]) {
             equals();
         }
 
-        // если нажатая кнопка - число Эйлера
+
         else if (jbutton == button[12]) {
-            outputField.setText("2.718281828459045"); // выводим число Эйлера
+            outputField.setText("2.718281828459045");
         }
 
-        // если нажатая кнопка - число Пи
         else if (jbutton == button[11]) {
-            outputField.setText("3.141592653589793"); // выводим число Пи
+            outputField.setText("3.141592653589793");
         }
 
-        // если нажатая кнопка - цифра или точка
+
         else {
             for (int i = 0; i < 11; i++) {
                 if (jbutton == button[i]) {
-                    String t = outputField.getText(); // считываем введённые символы
-                    t += button[i].getText(); // добавляем к считанным данным символ, написанный на кпопке
-                    outputField.setText(t); // выводим обратно данные + добавленный нами символ
+                    String t = outputField.getText();
+                    t += button[i].getText();
+                    outputField.setText(t);
                 }
             }
         }
     }
 
-    /* Действия, выполняемые кнопкой "очистка" */
+
     public void clear() {
-        output = input1 = input2 = 0; // стираем память
-        outputField.setText(""); // очищаем поле вывода
+        output = input1 = input2 = 0;
+        outputField.setText("");
     }
 
-    /* Действия, выполняемые кнопкой "инженер" */
+
     public void extendedMode() {
         if (!isExtended) {
             panel.setLayout(new GridLayout(11, 4));
@@ -291,49 +275,32 @@ public class JavaCalculator implements ActionListener {
         }
     }
 
-    /* Действия, выполняемые кнопкой "равно" */
+
     public void equals() {
-        input2 = Double.parseDouble(outputField.getText().substring(notInclude)); // считываем последние введённые
+        input2 = Double.parseDouble(outputField.getText().substring(notInclude));
         // данные
-        calculate(); // выполняем последнюю присвоенную операцию
-        final String result = new DecimalFormat("#.###############").format(output); // округление
-        outputField.setText(outputField.getText() + "=" + result); // выводим результат
+        calculate();
+        final String result = new DecimalFormat("#.###############").format(output);
+        outputField.setText(outputField.getText() + "=" + result);
     }
 
-    /*
-     * Этот метод помогает сократить количество кода, выполняя сразу несколько
-     * действий. Аргументы:
-     *
-     * op - присваемая нами операция
-     *
-     * Данный метод автоматически выполняет вычисление и выводит результат, не
-     * требуя нажатие кнопки "равно"
-     */
+
     public void oneNumber(Operation op, JButton button) {
-        input1 = Double.parseDouble(outputField.getText()); // считываем введённые символы и преобразуем их в число
-        operation = op; // присваиваем операцию
-        calculate(); // выполняем вычисление, формула которого меняется в зависимости от операции
-        final String result = new DecimalFormat("#.###############").format(output); // округление
-        outputField.setText(button.getText() + "(" + outputField.getText() + ")" + "=" + result); // выводим результат
+        input1 = Double.parseDouble(outputField.getText());
+        operation = op;
+        calculate();
+        final String result = new DecimalFormat("#.###############").format(output);
+        outputField.setText(button.getText() + "(" + outputField.getText() + ")" + "=" + result);
     }
 
-    /*
-     * Этот метод помогает сократить количество кода, выполняя сразу несколько
-     * действий. Аргументы:
-     *
-     * op - присваемая нами операция
-     *
-     * Данный метод не выполняет вычисление, поскольку требуется ввод второго числа,
-     * после которого нужно нажать "равно"
-     */
+
     public void twoNumbers(Operation op, JButton button) {
         notInclude = outputField.getText().length() + button.getText().length();
-        input1 = Double.parseDouble(outputField.getText()); // считываем введённые символы и преобразуем их в число
-        operation = op; // присваиваем операцию
-        outputField.setText(outputField.getText() + button.getText()); // выводим операцию
+        input1 = Double.parseDouble(outputField.getText());
+        operation = op;
+        outputField.setText(outputField.getText() + button.getText());
     }
 
-    // вычисления, где формула зависит от ранее присвоенной операции
     public double calculate() {
         switch (operation) {
             case PLUS:
@@ -435,23 +402,22 @@ public class JavaCalculator implements ActionListener {
         return 0;
     }
 
-    // перечисление всех операций, где NULL - операция по умолчанию, использущаяся,
-    // если пользователь не присвоил новую операцию.
+
     public enum Operation {
         NULL, ARCCOS, ARCCTG, ARCSIN, ARCTG, COS, CTG, DIVIDE, FACTORIAL, LOGARITHM, MINUS, MULTIPLE, PERCENT, PLUS, POWER, SIN, SQRT, TG, SQARE, CUBE, LG, LN, CH, SH, TH, CTH, TEN, BACK, DOUBLEFACT;
     }
 
-    // доступ к приватному полю
+
     public JButton getButton(int i) {
         return button[i];
     }
 
-    // доступ к приватному полю
+
     public boolean getExtended() {
         return isExtended;
     }
 
-    // доступ к приватному полю
+
     public double getOutput() {
         return output;
     }
