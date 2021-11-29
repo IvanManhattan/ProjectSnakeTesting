@@ -36,7 +36,7 @@ public class JavaCalculator implements ActionListener {
             button[i] = new JButton();
         }
 
-        panel.setLayout(new GridLayout(7, 4));
+        //panel.setLayout(new GridLayout(7, 4));
 
         registerButton(button[13], "C");
         registerButton(button[12], "e");
@@ -91,18 +91,18 @@ public class JavaCalculator implements ActionListener {
 
         registerButton(button[32], "Инженер");
 
-        outputField.setFont(outputField.getFont().deriveFont(40f));
-        outputField.setHorizontalAlignment(SwingConstants.RIGHT);
-        outputField.setEditable(false);
+        //outputField.setFont(outputField.getFont().deriveFont(40f));
+        //outputField.setHorizontalAlignment(SwingConstants.RIGHT);
+        //outputField.setEditable(false);
         operation = Operation.NULL;
 
     }
 
 
     public void registerButton(JButton button, String name) {
-        button.setFont(button.getFont().deriveFont(20f));
+        //button.setFont(button.getFont().deriveFont(20f));
         button.addActionListener(this);
-        button.setText(name);
+        //button.setText(name);
         panel.add(button);
     }
 
@@ -281,7 +281,7 @@ public class JavaCalculator implements ActionListener {
         // данные
         calculate();
         final String result = new DecimalFormat("#.###############").format(output);
-        outputField.setText(outputField.getText() + "=" + result);
+        //outputField.setText(outputField.getText() + "=" + result);
     }
 
 
@@ -290,7 +290,7 @@ public class JavaCalculator implements ActionListener {
         operation = op;
         calculate();
         final String result = new DecimalFormat("#.###############").format(output);
-        outputField.setText(button.getText() + "(" + outputField.getText() + ")" + "=" + result);
+        //outputField.setText(button.getText() + "(" + outputField.getText() + ")" + "=" + result);
     }
 
 
@@ -298,7 +298,7 @@ public class JavaCalculator implements ActionListener {
         notInclude = outputField.getText().length() + button.getText().length();
         input1 = Double.parseDouble(outputField.getText());
         operation = op;
-        outputField.setText(outputField.getText() + button.getText());
+        //outputField.setText(outputField.getText() + button.getText());
     }
 
     public double calculate() {
