@@ -1,4 +1,4 @@
-package main;
+package com.uni;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
